@@ -29,6 +29,7 @@ public class LivroController {
 	
 	@PostMapping
 	public void cadastrar(@RequestBody @Valid LivroFormDto dto) {
+		System.out.println("Teste");
 		service.cadastrar(dto);
 	}
 	
