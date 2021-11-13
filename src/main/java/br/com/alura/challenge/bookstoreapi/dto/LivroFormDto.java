@@ -7,6 +7,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 //import br.com.alura.challenge.bookstoreapi.modelo.Autor;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,5 +25,7 @@ public class LivroFormDto {
 	
 	@DecimalMin("100")
 	private int numeroDePaginas;
-	//private Autor autor;
+	
+	@JsonAlias("autor_id")
+	private Long autorId;
 }

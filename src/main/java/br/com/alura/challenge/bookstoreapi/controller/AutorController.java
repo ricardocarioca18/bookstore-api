@@ -15,17 +15,12 @@ import br.com.alura.challenge.bookstoreapi.service.AutorService;
 import br.com.alura.challenge.bookstoreapi.dto.AutorDto;
 import br.com.alura.challenge.bookstoreapi.dto.AutorFormDto;
 
-
 @RestController
 @RequestMapping("/autores")
 public class AutorController {
-	
-	
-	
+		
 	@Autowired
 	private AutorService service;
-	
-
 	
 	@GetMapping
 	public List<AutorDto> listar(){
