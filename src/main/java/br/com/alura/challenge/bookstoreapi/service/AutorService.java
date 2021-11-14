@@ -1,15 +1,16 @@
 package br.com.alura.challenge.bookstoreapi.service;
 
 
-import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.alura.challenge.bookstoreapi.dto.AutorDto;
 import br.com.alura.challenge.bookstoreapi.dto.AutorFormDto;
@@ -24,15 +25,13 @@ public class AutorService {
 	ModelMapper modelMapper = new ModelMapper();
 	
 	
-	public List<AutorDto> listar() {
-		List<Autor> autores = ar.findAll();
+	public Page<AutorDto> listar(Pageable paginacao) {
+		Page<Autor> autores = ar.findAll(paginacao);
 		return autores
-				.stream()
-				.map(t -> modelMapper.map(t, AutorDto.class))
-				.collect(Collectors.toList());
+				.map(t -> modelMapper.map(t, AutorDto.class));
 	}
 	
-	
+	@Transactional
 	public void cadastrar(@Valid AutorFormDto dto) {
 		Autor a = modelMapper.map(dto, Autor.class);
 		

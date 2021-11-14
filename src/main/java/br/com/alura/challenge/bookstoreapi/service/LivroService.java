@@ -1,14 +1,15 @@
 package br.com.alura.challenge.bookstoreapi.service;
 
 
-import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.alura.challenge.bookstoreapi.dto.LivroDto;
 import br.com.alura.challenge.bookstoreapi.dto.LivroFormDto;
@@ -23,17 +24,16 @@ public class LivroService {
 	ModelMapper modelMapper = new ModelMapper();
 	
 	
-	public List<LivroDto> listar() {
-		List<Livro> livros = lr.findAll();
+	public Page<LivroDto> listar(Pageable paginacao) {
+		Page<Livro> livros = lr.findAll(paginacao);
 		return livros
-				.stream()
-				.map(l -> modelMapper.map(l, LivroDto.class))
-				.collect(Collectors.toList());
+				.map(l -> modelMapper.map(l, LivroDto.class));
 	}
 
-
+	@Transactional
 	public void cadastrar(@Valid LivroFormDto dto) {
 		Livro l = modelMapper.map(dto, Livro.class);
+		l.setId(null);
 		lr.save(l);
 	}
 }

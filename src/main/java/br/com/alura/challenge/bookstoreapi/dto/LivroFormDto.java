@@ -9,7 +9,6 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 
-//import br.com.alura.challenge.bookstoreapi.modelo.Autor;
 import lombok.Getter;
 import lombok.Setter;
 
