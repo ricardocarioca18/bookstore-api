@@ -1,7 +1,6 @@
 package br.com.alura.challenge.bookstoreapi.dto;
 
 
-import br.com.alura.challenge.bookstoreapi.modelo.Autor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
