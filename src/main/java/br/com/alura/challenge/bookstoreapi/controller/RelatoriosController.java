@@ -17,7 +17,7 @@ public class RelatoriosController {
 	@Autowired
 	private RelatoriosService service;
 	
-	@GetMapping("/teste")
+	@GetMapping("/livrosPorAutor")
 	public List<ItemLivrosPorAutorDto> relatorioLivrosPorAutor(){
 		return service.relatorioLivrosPorAutor();
 	}
