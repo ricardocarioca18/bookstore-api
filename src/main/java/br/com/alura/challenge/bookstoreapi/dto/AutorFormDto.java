@@ -1,5 +1,6 @@
 package br.com.alura.challenge.bookstoreapi.dto;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Getter;
@@ -11,6 +12,6 @@ public class AutorFormDto {
 
 	@NotBlank
 	private String nome;
-	@NotBlank
-	private String idade;
+	@DecimalMin("18")
+	private Integer idade;
 }
