@@ -13,7 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.alura.challenge.bookstoreapi.dto.LivroDto;
 import br.com.alura.challenge.bookstoreapi.dto.LivroFormDto;
+import br.com.alura.challenge.bookstoreapi.modelo.Autor;
 import br.com.alura.challenge.bookstoreapi.modelo.Livro;
+import br.com.alura.challenge.bookstoreapi.repository.AutorRepository;
 import br.com.alura.challenge.bookstoreapi.repository.LivroRepository;
 
 @Service
@@ -21,6 +23,8 @@ public class LivroService {
 
 	@Autowired
 	private LivroRepository lr;
+	@Autowired
+	private AutorRepository ar;
 	ModelMapper modelMapper = new ModelMapper();
 	
 	
@@ -31,9 +35,19 @@ public class LivroService {
 	}
 
 	@Transactional
-	public void cadastrar(@Valid LivroFormDto dto) {
-		Livro l = modelMapper.map(dto, Livro.class);
-		l.setId(null);
-		lr.save(l);
+	public LivroDto cadastrar(@Valid LivroFormDto dto) {
+		Long idAutor = dto.getAutorId();
+		
+		try {
+			Autor autor = ar.getById(idAutor);
+			Livro l = modelMapper.map(dto, Livro.class);
+			l.setId(null);
+			l.setAutor(autor);
+			//lr.save(l);
+			return modelMapper.map(l, LivroDto.class);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Autor inexistente!");
+		}
+		
 	}
 }
