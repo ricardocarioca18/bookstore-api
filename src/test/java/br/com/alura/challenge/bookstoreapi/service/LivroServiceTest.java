@@ -30,14 +30,19 @@ class LivroServiceTest {
 	@InjectMocks
 	private LivroService ls;
 	
-	@Test
-	void deveriaCadastrarUmLivro() {
+	private LivroFormDto criarLivroFormDto() {
 		LivroFormDto formDto = new LivroFormDto(
 				"Percy Jackson e o Ladrão de Raios",
 				LocalDate.now(),
 				250,
 				15l
 				);
+		return formDto;
+	}
+	
+	@Test
+	void deveriaCadastrarUmLivro() {
+		LivroFormDto formDto = criarLivroFormDto();
 		
 		LivroDto dto = ls.cadastrar(formDto);
 		
@@ -48,14 +53,11 @@ class LivroServiceTest {
 		assertEquals(dto.getDataDeLancamento(), formDto.getDataDeLancamento());
 	}
 
+	
+
 	@Test
 	void naoDeveriaCadastrarUmLivroComAutorQueNaoExiste() {
-		LivroFormDto formDto = new LivroFormDto(
-				"Percy Jackson e o Ladrão de Raios",
-				LocalDate.now(),
-				250,
-				15l
-				);
+		LivroFormDto formDto = criarLivroFormDto();
 		Mockito
 		.when(ar.getById(formDto.getAutorId()))
 		.thenThrow(EntityNotFoundException.class);

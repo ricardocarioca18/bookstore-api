@@ -2,6 +2,7 @@ package br.com.alura.challenge.bookstoreapi.repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -33,8 +34,7 @@ class LivroRepositoryTest {
 	@Autowired
 	private EntityManager em;
 	
-	@Test
-	void deveriaRetornarRelatorioDeLivrosPorAutor() {
+	private void criarAutorELivros() {
 		Autor a1 = new Autor("Ricardo", "1237", 31, "123456");
 		em.persist(a1);
 		Autor a2 = new Autor("Marina", "0584", 29, "123456");
@@ -49,6 +49,11 @@ class LivroRepositoryTest {
 		em.persist(l4);
 		Livro l5 = new Livro("Mulheres que correm com lobos", LocalDate.of(2002, 7, 12), 800, a2);
 		em.persist(l5);
+	}
+	
+	@Test
+	void deveriaRetornarRelatorioDeLivrosPorAutor() {
+		criarAutorELivros();
 		
 		List<ItemLivrosPorAutorDto> relatorio = lr.relatorioLivrosPorAutor();
 		//assertNotNull(relatorio);
@@ -59,13 +64,15 @@ class LivroRepositoryTest {
 		.hasSize(2)
 		.extracting(ItemLivrosPorAutorDto::getAutor, ItemLivrosPorAutorDto::getQuantidadeLivros, ItemLivrosPorAutorDto::getPercentual)
 		.containsExactlyInAnyOrder(
-					Assertions.tuple("Ricardo", 3l, 0.6),
-					Assertions.tuple("Marina", 2l, 0.4)
+					Assertions.tuple("Ricardo", 3l, new BigDecimal("60.00")),
+					Assertions.tuple("Marina", 2l, new BigDecimal("40.00"))
 				);
 		
 		
 		
 		
 	}
+
+	
 
 }

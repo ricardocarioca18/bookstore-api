@@ -13,7 +13,7 @@ public interface LivroRepository extends JpaRepository<Livro, Long>{
 	@Query("select new br.com.alura.challenge.bookstoreapi.dto.ItemLivrosPorAutorDto("
 			+ "l.autor.nome, "
 			+ "count(l.titulo), "
-			+ "count(l.titulo) * 1.0 / (select count(l2.titulo) from Livro l2) * 1.0) "
+			+ "(select count(l2.titulo) from Livro l2)) "
 			+ "from Livro l "
 			+ "group by l.autor")
 	List<ItemLivrosPorAutorDto> relatorioLivrosPorAutor();
