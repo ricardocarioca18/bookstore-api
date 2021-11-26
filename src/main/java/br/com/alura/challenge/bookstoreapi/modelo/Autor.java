@@ -28,4 +28,13 @@ public class Autor {
 	private String matricula;
 	private Integer idade;
 	private String senha;
+	
+	public Autor(String nome, String matricula, Integer idade, String senha) {
+		this.nome = nome;
+		this.matricula = matricula;
+		this.idade = idade;
+		this.senha = senha;
+	}
+	
+	
 }
