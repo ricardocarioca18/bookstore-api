@@ -14,7 +14,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import br.com.alura.challenge.bookstoreapi.dto.LivroDto;
-import br.com.alura.challenge.bookstoreapi.dto.LivroFormDto;
+import br.com.alura.challenge.bookstoreapi.dto.form.LivroFormDto;
 import br.com.alura.challenge.bookstoreapi.repository.AutorRepository;
 import br.com.alura.challenge.bookstoreapi.repository.LivroRepository;
 

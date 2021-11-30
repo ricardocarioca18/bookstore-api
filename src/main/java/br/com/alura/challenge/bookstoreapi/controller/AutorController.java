@@ -16,7 +16,7 @@ import br.com.alura.challenge.bookstoreapi.service.AutorService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import br.com.alura.challenge.bookstoreapi.dto.AutorDto;
-import br.com.alura.challenge.bookstoreapi.dto.AutorFormDto;
+import br.com.alura.challenge.bookstoreapi.dto.form.AutorFormDto;
 
 @RestController
 @RequestMapping("/autores")

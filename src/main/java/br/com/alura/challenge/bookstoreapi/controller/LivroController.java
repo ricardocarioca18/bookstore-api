@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.alura.challenge.bookstoreapi.dto.LivroDto;
-import br.com.alura.challenge.bookstoreapi.dto.LivroFormDto;
+import br.com.alura.challenge.bookstoreapi.dto.form.LivroFormDto;
 import br.com.alura.challenge.bookstoreapi.service.LivroService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

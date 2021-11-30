@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.alura.challenge.bookstoreapi.dto.AutorDto;
-import br.com.alura.challenge.bookstoreapi.dto.AutorFormDto;
+import br.com.alura.challenge.bookstoreapi.dto.form.AutorFormDto;
 import br.com.alura.challenge.bookstoreapi.modelo.Autor;
 import br.com.alura.challenge.bookstoreapi.repository.AutorRepository;
 

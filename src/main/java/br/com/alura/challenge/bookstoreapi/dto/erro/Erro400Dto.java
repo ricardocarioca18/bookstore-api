@@ -1,4 +1,4 @@
-package br.com.alura.challenge.bookstoreapi.dto;
+package br.com.alura.challenge.bookstoreapi.dto.erro;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

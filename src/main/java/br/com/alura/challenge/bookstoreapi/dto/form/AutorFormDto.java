@@ -1,4 +1,4 @@
-package br.com.alura.challenge.bookstoreapi.dto;
+package br.com.alura.challenge.bookstoreapi.dto.form;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;

@@ -1,4 +1,4 @@
-package br.com.alura.challenge.bookstoreapi.dto;
+package br.com.alura.challenge.bookstoreapi.dto.erro;
 
 import java.time.LocalDate;
 
