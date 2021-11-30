@@ -13,22 +13,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.alura.challenge.bookstoreapi.service.AutorService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import br.com.alura.challenge.bookstoreapi.dto.AutorDto;
 import br.com.alura.challenge.bookstoreapi.dto.AutorFormDto;
 
 @RestController
 @RequestMapping("/autores")
+@Api(tags = "Autor")
 public class AutorController {
 		
 	@Autowired
 	private AutorService service;
 	
 	@GetMapping
+	@ApiOperation("Listar autores")
 	public Page<AutorDto> listar(Pageable paginacao){
 		return service.listar(paginacao);
 	}
 	
 	@PostMapping
+	@ApiOperation("Cadastrar autor")
 	public void cadastrar(@RequestBody @Valid AutorFormDto dto) {		
 		service.cadastrar(dto);
 	}
