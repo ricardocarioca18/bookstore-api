@@ -1,4 +1,4 @@
-package br.com.alura.challenge.bookstoreapi.infra;
+package br.com.alura.challenge.bookstoreapi.infra.swagger;
 
 import java.util.Collections;
 
