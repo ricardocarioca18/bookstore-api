@@ -39,13 +39,13 @@ public class TratamentoDeErros {
 				req.getRequestURI());
 	}
 	
-	@ExceptionHandler(Exception.class)
-	@ResponseStatus(code = HttpStatus.NOT_FOUND)
-	public Erro404Dto tratarErro404(Exception e, HttpServletRequest req) {
-		return new Erro404Dto(
-				LocalDate.now(), 
-				e.getClass().toString(), 
-				e.getMessage(), 
-				req.getRequestURI());
-	}
+//	@ExceptionHandler(Exception.class)
+//	@ResponseStatus(code = HttpStatus.NOT_FOUND)
+//	public Erro404Dto tratarErro404(Exception e, HttpServletRequest req) {
+//		return new Erro404Dto(
+//				LocalDate.now(), 
+//				e.getClass().toString(), 
+//				e.getMessage(), 
+//				req.getRequestURI());
+//	}
 }
