@@ -35,6 +35,11 @@ public class Autor {
 		this.idade = idade;
 		this.senha = senha;
 	}
+
+	public void atualizarIformacoes(String nome, Integer idade) {
+		this.nome = nome;
+		this.idade = idade;
+	}
 	
 	
 }
